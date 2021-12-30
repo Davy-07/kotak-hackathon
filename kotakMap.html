@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="myText" placeholder=""/>
+    <button onclick="check()" id='myBtn'>submit</button>
+
+    <iframe
+      id="myFrame"
+      width="900"
+      height="500"
+      frameborder="0"
+      style="border: 0"
+      src="//www.google.com/maps/embed/v1/search?key=AIzaSyDUha3EwP1kK-QSWA5tXW3wQ8fUYWXucjY&q=kotak+branch&center=19.0779,72.8827&zoom=10";
+    >
+    </iframe>
+  </body>
+</html>
+
+<script>
+  function showMap(latitute, longitude) {
+    document.getElementById("myFrame").src =
+      "//www.google.com/maps/embed/v1/search?key=AIzaSyDUha3EwP1kK-QSWA5tXW3wQ8fUYWXucjY&q=kotak+branch&center=latitude,longitude";
+  }
+
+  function onSuccess(position) {
+    console.log(position);
+  }
+
+  function onError(error) {
+    console.log(error);
+  }
+
+  function getLocation() {
+    console.log("reached");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      document.console = "Geolocation is not supported by this browser.";
+    }
+  }
+
+  function showPosition(position) {
+    console.log =
+      "Latitude: " +
+      position.coords.latitude +
+      "<br>Longitude: " +
+      position.coords.longitude;
+
+    showMap(position.coords.latitude, position.coords.longitude);
+  }
+
+  function check() {
+    let x = document.getElementById("myText").value;
+    let choices = [
+      "find nearest kotak branch",
+      "find kotak bank near me",
+      "kotak atm near me",
+      "where is kotak",
+    ];
+    let find=choices.includes(x)
+    if (find == true) {
+      getLocation();
+    }
+  }
+</script>
