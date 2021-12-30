@@ -2,7 +2,7 @@
 
 import matplotlib.pyplot as plt
 import pandas as pd
-data = pd.read_csv('review2.csv')
+data = pd.read_csv('review.csv')
 print(data)
 
   
