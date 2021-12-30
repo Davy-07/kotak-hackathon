@@ -7,4 +7,7 @@ After running UI.py, run the convert.py file to convert the sql file into a csv 
 After that run the plots.py file to generate a histogram
 
 
+Here we have uploaded the screenshoys of Maps as well as Histogram 
+
+
 
